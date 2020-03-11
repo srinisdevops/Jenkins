@@ -1,6 +1,6 @@
 
          
-provider "region" {
+provider "aws" {
 	region = "us-east-2"
 }
 
@@ -17,8 +17,8 @@ terraform {
 
 
 resource "aws_instance" "srini_servers" {
-	#ami = "ami-0fc20dd1da406780b"
-	ami = "lookup(var.amiid, var.region)"
+	ami = "ami-0fc20dd1da406780b"
+	#ami = "lookup(var.amiid, var.region)"
 	count = "${var.instance_count}"
 	instance_type = "t2.micro"
 	vpc_security_group_ids = ["${var.security_group}"]

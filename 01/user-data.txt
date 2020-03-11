@@ -1,6 +1,9 @@
 
 #!/bin/bash
 # Jenkins install instructions for Ubuntu:
+
+echo "This is a sample file " > /tmp/testFile
+
 sudo apt-get update -y
 
 #Install Java sdk
@@ -18,5 +21,5 @@ sudo apt-get install jenkins -y
 # To use Jenkins: Open browser and type the http://<<Public Ip of the node on which you installed Jenkins>>:8080
 # Then follow the instruction displayed on the browser.
 
-
+echo "This is second sample file " >> /tmp/testFile
 

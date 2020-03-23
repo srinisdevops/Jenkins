@@ -2,7 +2,7 @@
 #!/bin/bash
 # Jenkins install instructions for Ubuntu:
 
-echo "This is a sample file " > /tmp/testFile
+echo "This is a sample file " > /testFile
 
 sudo apt-get update -y
 

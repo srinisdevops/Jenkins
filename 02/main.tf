@@ -26,7 +26,15 @@ resource "aws_instance" "srini_servers" {
     #Name = "tf-example"
     Name = "terraformInst--${count.index + 1}"
   }
-  user_data = file("user_data.txt")
+  user_data = << EOF
+		#!/bin/bash
+                sudo apt-get update
+		sudo apt-get install -y apache2
+		sudo systemctl start apache2
+		sudo systemctl enable apache2
+		echo "Deployed via Terraform" > /tmp/outp.txt
+	EOF
+#  user_data = "${file("user_data.txt")}"
 }
 
 output "public_ip" {

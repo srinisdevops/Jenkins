@@ -9,7 +9,7 @@ terraform {
   backend "s3" {
     bucket = "mybucket02222020"
     #key    = "tfstatefiles/terraform.tfstate"
-    key    = "jenkins/01/terraform.tfstate"
+    key    = "dynamo/terraform.tfstate"
     region = "us-east-2"
   }
 }

@@ -2,10 +2,11 @@
 #!/bin/bash
 # Jenkins install instructions for Ubuntu:
 
-echo "This is a sample file " > /tmp/testFile
+echo "This is a sample file " > /testFile
 
 sudo apt-get update -y
 
+#=====Jenkins===============
 #Install Java sdk
 sudo apt install openjdk-8-jdk-headless -y
 
@@ -22,4 +23,7 @@ sudo apt-get install jenkins -y
 # Then follow the instruction displayed on the browser.
 
 echo "This is second sample file " >> /tmp/testFile
+
+# ========  dynamo db installation
+
 

@@ -1,29 +1,15 @@
 
-#! /bin/bash
-# Jenkins install instructions for Ubuntu:
+#!/bin/bash
+sudo apt-get update -y  
 
-echo "this is a sample file" > /tmp/testFile
+sudo apt-get install apt-transport-https -y
+sudo apt-get install ca-certificates -y
+sudo apt-get install curl -y
+sudo apt-get install -y gnupg-agent 
+sudo apt-get install software-properties-common -y 
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update -y 
 
-echo "ssh-rsa AAABACBPNlqr7srh9QaCUpj9OFUXnwPx0X+11lxKKiqeJbgyTjG0ihOLDr15LXRZ
-tO3QQYUGny79/2IA3OhKkm7JgeUvlWThq17OckxBDiwJy3GdKRACRpNj3FhOfDrd
-lVPpFFNFTc6g9Q4+s7SsDb1LEEzkJFV0zwOh81t6uJ9yUz/vm07NIittXcRH+agq
-bFVzjoyTZZKkLxF2EXs7Y/+bDFfsp6DwUeIiXVLSsq0GrJBkpFuC55+Ed6ElSTI4
-ktO6GUzd4cxJavKXT/OI2uVY5BLwSMy4DHEUYYa1l4qySpnKadnubd16OL/rqSaq
-5rEcPe1OORHb0txsRuUyJeuLTqkAAACBAOxlpgRdywE1HisNxzfHQw4C5vSXlfmL
-Yt2gYVuau9mZ4PlGTgaTIWgJkFioRz5JAr6x264LppRqFgUmIwk2UTSZ5A2XTtcK
-Y0OYtihLRjo6iZbM28ACURRuy7e93siS+LXnCTbVACJF4NpoFZ4v2lNJmx66pFnw
-+wWeJPOBG80vAAAAgQDBp0lPivLKTcVgbTclgbppKewAYbf3SWAguDnnH3g0GMyF
-xPFxTEF4MVh/ovHCgf/1mg7NzM/CKclxaBLAGvVxSxJg69GSI3z4GKoyblPyCeAB
-oeWmuUIlORJhvsYXYhywecEPzEzihkAQPHvdGq1zh5gu66o46ekG/cl5vfpWzQAA
-AIEAuOxqrvYXIUA9J02qyOj1Qk7bnk6MWb4g/LeFeawVba3mMkRgmjK0x/dIkaY4
-6haoYwyGb0LTk4BsrHmdwV2oBvxuEjT6RitKp30jGkZQxlAS21bsSFK3sz/h8Z3k
-tq+2BwiQl+DD8TbzfQZBASTNRpdaDO2DVRFpfWl8WCuCyes=  ubuntu@ip-172-31-16-229 MyKeyPair" >> /home/ubuntu/.ssh/authorized_keys
-
-sudo apt-get update -y
-sudo git clone https://github.com/munireddy/setupInstructions.git
-sudo chmod 777 ~/setupInstructions/Jenkins/jenkins.sh
-sudo bash ~/setupInstructions/Jenkins/jenkins.sh
-
-
-
+sudo apt-get install docker-ce -y
 

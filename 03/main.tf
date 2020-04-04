@@ -2,15 +2,15 @@ provider "aws" {
   region = "us-east-2"
 }
 
-#terraform {
-#  backend "s3" {
-#    bucket = "mybucket02222020"
-#
-#    #key    = "tfstatefiles/terraform.tfstate"
-#    key    = "jenkins/02/terraform.tfstate"
-#    region = "us-east-2"
-#  }
-#}
+terraform {
+  backend "s3" {
+    bucket = "mybucket02222020"
+
+    #key    = "tfstatefiles/terraform.tfstate"
+    key    = "jenkins/03/terraform.tfstate"
+    region = "us-east-2"
+  }
+}
 
 resource "aws_instance" "srini_servers" {
   #ami = "ami-0fc20dd1da406780b"
@@ -27,7 +27,7 @@ resource "aws_instance" "srini_servers" {
     Name = "tf-jenkins-${count.index + 1}"
   }
   #allow_userdata = true
-  user_data = file("user-data.sh")
+  user_data = file("user-data.txt")
 }
 
 output "public_ip" {

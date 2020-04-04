@@ -1,24 +1,25 @@
 variable "region" {
-default = "us-east-2"
+  default = "us-east-2"
 }
+
 variable "amiid" {
-  type = "map"
-  default = {
+  type = map
+  default =  {
     us-east-2 = "ami-0fc20dd1da406780b"
-    us-east-1 = "ami-0400a1104d5b9caa1"
-    us-west-1 = "ami-03ba3948f6c37a4b0"
+    us-east-1 = "ami-759bc50a"
+    eu-west-1 = "ami-4aa04129"
   }
   description = "You may added more regions if you want"
 }
 
 variable "instance_count" {
-  default = "1"
-}
-variable "key_name" {
-  default = "MyKeyPair"
-  description = "the ssh key to be used for the EC2 instance"
+  default = "2"
 }
 
+variable "key_name" {
+  default     = "MyKeyPair1"
+  description = "the ssh key to used for the EC2 instance"
+}
 
 variable "security_group" {
   default     = "sg-06b2e5950e8c41e0d"

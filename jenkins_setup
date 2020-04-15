@@ -1,4 +1,11 @@
-ns install instructions for Ubuntu:
+#!/bin/bash
+# Jenkins install instructions for Ubuntu (master slave configuration):
+
+sudo apt-get update -y
+
+sudo apt install software-properties-common apt-transport-https -y
+sudo add-apt-repository ppa:openjdk-r/ppa -y
+
 sudo apt-get update -y
 
 #Install Java sdk
@@ -15,3 +22,4 @@ sudo apt-get install jenkins -y
 
 # To use Jenkins: Open browser and type the http://<<Public Ip of the node on which you installed Jenkins>>:8080
 # Then follow the instruction displayed on the browser.
+

@@ -7,7 +7,7 @@ terraform {
     bucket = "mybucket02222020"
 
     #key    = "tfstatefiles/terraform.tfstate"
-    key    = "jenkins/04/terraform.tfstate"
+    key    = "jenkins/03/terraform.tfstate"
     region = "us-east-2"
   }
 }
@@ -19,25 +19,20 @@ resource "aws_instance" "srini_servers" {
   instance_type          = "t2.micro"
   vpc_security_group_ids = [var.security_group]
   key_name               = var.key_name
+  root_block_device {
+    volume_size = 12
+  }
   tags = {
     #Name = "tf-example"
-    Name = "tf-docker-${count.index + 1}"
+    Name = "tf-jenkins-${count.index + 1}"
   }
   #allow_userdata = true
   user_data = file("user-data.txt")
 }
 
 output "public_ip" {
-  value = "${formatlist("%v",aws_instance.srini_servers.*.public_ip)}"
+  value = aws_instance.srini_servers.*.public_ip
 }
-
-resource "null_resource" "myPublicIps" {
-count = var.instance_count
-provisioner "local-exec" {
-      command = "echo '${element(aws_instance.srini_servers.*.public_ip, count.index)}' >> hosts1"
-}
-}
-
 
 output "user_data" {
   value = aws_instance.srini_servers.*.user_data

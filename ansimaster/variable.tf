@@ -13,7 +13,7 @@ variable "amiid" {
 }
 
 variable "instance_count" {
-  default = "3"
+  default = "1"
 }
 
 variable "key_name" {

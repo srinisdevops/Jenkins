@@ -24,7 +24,7 @@ resource "aws_instance" "srini_servers" {
   }
   tags = {
     #Name = "tf-example"
-    Name = "tf-jenkins-${count.index + 1}"
+    Name = "tf-jen-master-${count.index + 1}"
   }
   #allow_userdata = true
   user_data = file("user-data.txt")
